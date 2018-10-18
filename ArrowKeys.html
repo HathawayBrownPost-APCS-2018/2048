@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>A function is triggered when the user is pressing a key.</p>
+
+<input type="text" onkeydown="myFunction()">
+
+<p id="whichKey"></p>
+
+<script>
+document.onkeydown = checkKey;
+
+function checkKey(e) {
+
+    e = e || window.event;
+
+    if (e.keyCode == '38') {
+        document.getElementById('whichKey').innerHTML = "Up Arrow";
+    }
+    else if (e.keyCode == '40') {
+        document.getElementById('whichKey').innerHTML = "Down Arrow";
+    }
+    else if (e.keyCode == '37') {
+        document.getElementById('whichKey').innerHTML = "Left Arrow";
+    }
+    else if (e.keyCode == '39') {
+        document.getElementById('whichKey').innerHTML = "Right Arrow";
+    }
+
+}
+
+function myFunction() {
+    alert("You pressed a key inside the input field");
+}
+</script>
+
+</body>
+</html>
