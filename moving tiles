@@ -1,0 +1,51 @@
+public boolean makeNewTile(){
+
+        if (!(emptyTile())){
+            return false;
+        }
+
+        Random random = new Random();
+
+        while (true){
+
+            int x = random.nextInt(SIZE);
+            int y = random.nextInt(SIZE);
+
+            if (tiles[x][y].getValue() == 0){
+
+                tiles[x][y].setValue(NewTileValue());
+                return true;
+
+            }
+
+        }
+
+    }
+    
+    public void move(Direction direction){
+    
+    for (int i=0; i< SIZE; i++){
+    
+    List<Tile> tileSet = new ArrayList<Tile>();
+               for (int j = 0; j < SIZE; j++){
+
+                switch(direction){
+
+                case LEFT: tileSet.add(tiles[i][j]); break;
+                case RIGHT: tileSet.add(tiles[i][SIZE - j - 1]); break;
+                case UP: tileSet.add(tiles[j][i]); break;
+                case DOWN: tileSet.add(tiles[SIZE - j - 1][i]); break;
+                default: break;
+
+                }
+
+            }
+
+            if (!(isEmptyTile(tileSet))){
+                slide(tileSet); //main tile group algorithm
+            }
+
+
+        }
+
+    }
