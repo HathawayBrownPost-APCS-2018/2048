@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <button onclick="startGame()">Start Game</button>
+    <p id="whichKey">Press a key</p>
+    <p id="theTable"></p>
+    <script src="script.js"></script>
+    <script>
+document.onkeydown = checkKey;
+function checkKey(e) {
+    e = e || window.event;
+    if (e.keyCode == '38') {
+        document.getElementById('whichKey').innerHTML = "Up Arrow";
+    }
+    else if (e.keyCode == '40') {
+        document.getElementById('whichKey').innerHTML = "Down Arrow";
+    }
+    else if (e.keyCode == '37') {
+        document.getElementById('whichKey').innerHTML = "Left Arrow";
+    }
+    else if (e.keyCode == '39') {
+        document.getElementById('whichKey').innerHTML = "Right Arrow";
+    }
+}
+</script>
+  </body>
+</html>
